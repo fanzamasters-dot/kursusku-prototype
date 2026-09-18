@@ -71,6 +71,12 @@ $year = date('Y');
               class="button">
               Lihat katalog Kursus
             </a>
+            
+            <a
+            href="fee-calculator.php"
+            class="button">
+            kalkulator Biaya Kursus
+          </a>
 
           </div>
 
