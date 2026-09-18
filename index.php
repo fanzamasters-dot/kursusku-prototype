@@ -48,7 +48,7 @@ $year = date('Y');
 </header>
 
   <main>
-    <section id="beranda" class="hero">
+    <section id="hero" class="hero">
 
       <div class="container">
 
@@ -56,10 +56,9 @@ $year = date('Y');
 
           <div>
 
-            <h2>
-              Selamat Datang di
-              <?php echo $siteName; ?>
-            </h2>
+            <h1>
+              <?= htmlspecialchars($tagline) ?>
+            </h1>
 
             <p>
               Platform belajar teknologi untuk
@@ -68,9 +67,9 @@ $year = date('Y');
             </p>
 
             <a
-              href="#kursus"
+              href="#katalog"
               class="button">
-              Lihat Kursus
+              Lihat katalog Kursus
             </a>
 
           </div>
@@ -89,11 +88,30 @@ $year = date('Y');
       </div>
 
     </section>
-    <section id="kursus" class="section">
+    <section id="keunggulan" class="section">
+      <artikel>
+       <h3>Materi Terarah</h3>
+       <p>Materi disusun bertahap dari dasar hingga pratik.</p>
+      </artikel>
+
+      <article>
+        <h3>belajar dengan proyek<h3/>
+        <p>Setiap tahap menghasilkan bagian nyata dari aplikasi.</P>
+      </article>
+
+      <article>
+        <h3>Pendamping Praktik</h3>
+        <P>mahasiswa belajar melalui demontrasi,latihan,dan evaluasi.</P>
+      </article>
+    </section>
+
+</main>
+   
+    <section id="katalog" class="section">
 
       <div class="container">
 
-        <h2>Program Kursus</h2>
+        <h2>Katalog Kursus</h2>
 
         <div class="course-grid">
 
@@ -132,9 +150,49 @@ $year = date('Y');
 
           </article>
 
+          <article class="course-card">
+            <h3>MYSQl</h3>
+
+            <P>Belajar Mengelola data base untuk aplikasi Web
+              menjadi lebih interaktif.
+            </P>
+          </article>
+
+          <article class="course-card">
+
+           <h3>JavaScrip</h3>
+           <P>
+            Belajar membuat halaman web 
+            menjadi lebih interaktif.
+           </P>
+
+          </article>
+
+          <article class="course-card">
+            <h3>Git & GitHub</h3>
+
+            <p>
+              Belajar mengelola kode dan proyek 
+              menggunakan  GitHub.
+            </p>
+          </article>
+
         </div>
 
       </div>
+
+    </section>
+    <section id ="alur" class="section">
+       <div class="container">
+        <h2>Cara Mendaftar </h2>
+
+        <ol>
+          <li>Pilih Kursus yang diminati,</li>
+          <li>Periksa kembali data.</li>
+          <li>Kirim pendaftaran dan Tunggu konfirmasi.</li>
+        </ol>
+
+       </div>
 
     </section>
     <section id="tentang" class="section section-light">
@@ -164,16 +222,29 @@ $year = date('Y');
       </div>
 
     </section>
-    <section class="section">
+    <section id="media" class="section">
 
       <div class="container">
 
-        <h2>Video Pembelajaran</h2>
+        <h2>Kenali Program kami</h2>
+
+        <img
+         src="Assets/image/logo.png"
+         alt="Mahasiswa sedang belajar pemrograman web"
+         width="640">
 
         <div class="video-placeholder">
 
           <iframe width="342" height="607" src="https://www.youtube.com/embed/nQinn48Bk2g" title="Kenapa Laravel Masih Banyak Yang Pake" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
+
+        <P>
+          Pelajari Juga 
+          <a href=https://www.php.net/"target"_balnk"rel="noopener"
+          dokumentasi PHP
+          </a>.
+
+        </P>
 
 
       </div>
