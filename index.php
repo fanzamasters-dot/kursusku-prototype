@@ -1,5 +1,57 @@
 <?php
 
+require_once __DIR__. '/helpers.php';
+$courses = [
+    [
+        'code' => 'WEB-01',
+        'name' => 'Web Dasar',
+        'fee' => 200000,
+        'quota' => 30,
+        'registered' => 12,
+        'start_date' => '2026-09-21',
+    ],
+    [
+        'code' => 'PHP-01',
+        'name' => 'PHP Dasar',
+        'fee' => 250000,
+        'quota' => 30,
+        'registered' => 18,
+        'start_date' => '2026-09-22',
+    ],
+    [
+        'code' => 'PHP-02',
+        'name' => 'PHP Lanjutan',
+        'fee' => 300000,
+        'quota' => 25,
+        'registered' => 24,
+        'start_date' => '2026-09-24',
+    ],
+    [
+        'code' => 'LAR-01',
+        'name' => 'Laravel Fundamental',
+        'fee' => 350000,
+        'quota' => 25,
+        'registered' => 25,
+        'start_date' => '2026-09-28',
+    ],
+    [
+        'code' => 'DB-01',
+        'name' => 'MySQL Dasar',
+        'fee' => 275000,
+        'quota' => 20,
+        'registered' => 0,
+        'start_date' => '2026-10-01',
+    ],
+    [
+        'code' => 'UI-01',
+        'name' => 'UI Web Dasar',
+        'fee' => 225000,
+        'quota' => 35,
+        'registered' => 9,
+        'start_date' => '2026-10-03',
+    ],
+];
+
 $siteName = 'KursusKu';
 $tagline = 'Belajar,daftar,dan kelola kursus dalam satu tempat';
 $year = date('Y');
@@ -7,11 +59,15 @@ $year = date('Y');
 
 <!doctype html> 
 <html lang="id"> 
-  <head> 
-    <meta charset="utf-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1"> 
-    <title><?= htmlspecialchars($siteName) ?></title> 
-  </head> 
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><?= htmlspecialchars($siteName) ?></title>
+
+  <link
+    rel="stylesheet"
+    href="assets/css/style.css">
+</head>
   <body> 
 
   </body> 
@@ -113,79 +169,50 @@ $year = date('Y');
 
 </main>
    
-    <section id="katalog" class="section">
+  <section id="katalog" class="section">
 
-      <div class="container">
+  <div class="container">
 
-        <h2>Katalog Kursus</h2>
+    <h2>Katalog Kursus</h2>
 
-        <div class="course-grid">
+    <table>
+      <thead>
+        <tr>
+          <th>Kode</th>
+          <th>Nama Kursus</th>
+          <th>Biaya</th>
+          <th>Mulai</th>
+          <th>Sisa Kursi</th>
+          <th>Status</th>
+        </tr>
+      </thead>
 
-          <article class="course-card">
+      <tbody>
+        <?php foreach ($courses as $course): ?>
+          <tr>
+            <td><?= htmlspecialchars($course['code']) ?></td>
+            <td><?= htmlspecialchars(trim($course['name'])) ?></td>
+            <td><?= rupiah($course['fee']) ?></td>
+            <td><?= formatTanggal($course['start_date']) ?></td>
+            <td><?= sisaKursi($course['quota'], $course['registered']) ?></td>
+            <?php
+            $status = statusKursus($course['quota'], $course['registered']);
+            $class = $status === 'Penuh' ? 'badge-full' : 'badge-available';
+           ?>
 
-            <h3>HTML & CSS</h3>
+           <td>
+              <span class="<?= $class ?>">
+               <?= $status ?>
+             </span>
+           </td>
+          </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
 
-            <p>
-              Belajar membangun struktur dan
-              tampilan website dari dasar.
-            </p>
+  </div>
 
-          </article>
-
-
-          <article class="course-card">
-
-            <h3>PHP</h3>
-
-            <p>
-              Belajar pemrograman web
-              server-side menggunakan PHP.
-            </p>
-
-          </article>
-
-
-          <article class="course-card">
-
-            <h3>Laravel</h3>
-
-            <p>
-              Membangun aplikasi web modern
-              menggunakan framework Laravel.
-            </p>
-
-          </article>
-
-          <article class="course-card">
-            <h3>MYSQl</h3>
-
-            <P>Belajar Mengelola data base untuk aplikasi Web
-              menjadi lebih interaktif.
-            </P>
-          </article>
-
-          <article class="course-card">
-
-           <h3>JavaScrip</h3>
-           <P>
-            Belajar membuat halaman web 
-            menjadi lebih interaktif.
-           </P>
-
-          </article>
-
-          <article class="course-card">
-            <h3>Git & GitHub</h3>
-
-            <p>
-              Belajar mengelola kode dan proyek 
-              menggunakan  GitHub.
-            </p>
-          </article>
-
-        </div>
-
-      </div>
+</section>
 
     </section>
     <section id ="alur" class="section">
