@@ -94,13 +94,11 @@ $year = date('Y');
     </div>
 
   </header>
-   <nav aria-label="Navigasi utama"> 
-    <a href="index.php"><strong><?= htmlspecialchars($siteName) ?></strong></a>
-    <a href="#keunggulan">Keunggulan</a> 
-    <a href="#katalog">Katalog</a> 
-    <a href="#alur">Cara Daftar</a> 
-    <a href="#kontak">Kontak</a> 
-  </nav> 
+  <nav aria-label="Navigasi utama">
+    <a href="index.php"><strong>KursusKu</strong></a>
+    <a href="index.php#katalog">Katalog</a>
+    <a href="registration.php">Daftar Kursus</a>
+</nav>
 </header>
 
   <main>
