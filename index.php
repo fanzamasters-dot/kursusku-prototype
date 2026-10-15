@@ -1222,14 +1222,15 @@ $year = date('Y');
 
                 <div class="video-wrapper">
 
-                    <iframe
-                        src="https://www.youtube.com/embed/nQinn48Bk2g"
-                        title="Kenapa Laravel Masih Banyak Yang Pake"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        allowfullscreen>
-                    </iframe>
-
+                  <video
+                    controls
+                    width="640"
+                  >
+                 <source
+                   src="assets/video/video-kursus.mp4"
+                   type="video/mp4"
+                  >
+                   </video>
                 </div>
 
             </div>

@@ -397,7 +397,7 @@ require_once __DIR__ . '/data.php';
 
             <form
                 action="process-registration.php"
-                method="GET"
+                method="POST"
             >
 
                 <input
