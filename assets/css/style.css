@@ -1,0 +1,1343 @@
+/* =========================================================
+   KURSUSKU
+   STYLE.CSS FINAL - MODUL 1 s/d 4
+   PHP & MySQL / Pemrograman Web III
+   ========================================================= */
+
+
+/* =========================================================
+   1. RESET & GLOBAL
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    background: #f4f7fb;
+    color: #172033;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   2. WARNA UTAMA
+   ========================================================= */
+
+:root {
+    --primary: #0f766e;
+    --primary-dark: #115e59;
+    --primary-light: #ccfbf1;
+
+    --accent: #14b8a6;
+
+    --dark: #16332c;
+    --text: #52635f;
+    --muted: #8a9995;
+
+    --background: #f4f7fb;
+    --white: #ffffff;
+
+    --border: #dce7e4;
+
+    --success: #15803d;
+    --success-bg: #dcfce7;
+
+    --danger: #b91c1c;
+    --danger-bg: #fee2e2;
+
+    --warning: #a16207;
+    --warning-bg: #fef3c7;
+
+    --shadow:
+        0 10px 30px rgba(15, 118, 110, 0.08);
+
+    --shadow-hover:
+        0 18px 40px rgba(15, 118, 110, 0.15);
+
+    --radius: 16px;
+}
+
+
+/* =========================================================
+   3. LAYOUT UTAMA
+   ========================================================= */
+
+main {
+    width: min(1120px, 92%);
+    margin: 0 auto;
+    padding: 45px 0 70px;
+}
+
+.container {
+    width: min(1120px, 92%);
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   4. HEADER / NAVIGATION
+   ========================================================= */
+
+header {
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid var(--border);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    backdrop-filter: blur(12px);
+}
+
+header .container,
+header nav {
+    min-height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.logo {
+    color: var(--primary);
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+nav a {
+    color: var(--text);
+    font-weight: 700;
+
+    padding: 8px 12px;
+
+    border-radius: 8px;
+
+    transition: 0.2s ease;
+}
+
+nav a:hover {
+    color: var(--primary);
+    background: var(--primary-light);
+}
+
+
+/* =========================================================
+   5. JIKA MODUL MENGGUNAKAN UL NAVIGATION
+   ========================================================= */
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    list-style: none;
+}
+
+nav li {
+    list-style: none;
+}
+
+
+/* =========================================================
+   6. HERO / LANDING PAGE
+   ========================================================= */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+
+    padding: 65px 55px;
+
+    border-radius: 24px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #115e59 0%,
+            #0f766e 55%,
+            #14b8a6 100%
+        );
+
+    box-shadow:
+        0 20px 45px rgba(15, 118, 110, 0.20);
+
+    margin-bottom: 45px;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    border-radius: 50%;
+
+    right: -90px;
+    bottom: -120px;
+
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.hero h1 {
+    position: relative;
+    z-index: 1;
+
+    max-width: 750px;
+
+    font-size: clamp(32px, 5vw, 50px);
+
+    line-height: 1.15;
+
+    margin-bottom: 18px;
+}
+
+.hero p {
+    position: relative;
+    z-index: 1;
+
+    max-width: 650px;
+
+    color: #e6fffb;
+
+    font-size: 17px;
+
+    margin-bottom: 28px;
+}
+
+
+/* =========================================================
+   7. JUDUL SECTION
+   ========================================================= */
+
+.section-title {
+    margin-bottom: 8px;
+
+    color: var(--dark);
+
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.section-description {
+    color: var(--text);
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   8. CARD UMUM
+   ========================================================= */
+
+.card {
+    background: var(--white);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 25px;
+
+    box-shadow: var(--shadow);
+}
+
+
+/* =========================================================
+   9. KATALOG KURSUS
+   ========================================================= */
+
+/*
+   Bisa digunakan jika HTML menggunakan:
+   .course-grid
+   .course-card
+*/
+
+.course-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 22px;
+
+    margin-top: 25px;
+}
+
+.course-card {
+    position: relative;
+
+    background: white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 25px;
+
+    box-shadow: var(--shadow);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #99f6e4;
+
+    box-shadow: var(--shadow-hover);
+}
+
+.course-card h2,
+.course-card h3 {
+    color: var(--dark);
+
+    margin-bottom: 10px;
+}
+
+.course-card p {
+    color: var(--text);
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   10. HARGA KURSUS
+   ========================================================= */
+
+.price {
+    color: var(--primary);
+
+    font-size: 22px;
+
+    font-weight: 900;
+
+    margin:
+        15px 0;
+}
+
+.course-price {
+    color: var(--primary);
+
+    font-size: 22px;
+
+    font-weight: 900;
+
+    margin:
+        15px 0;
+}
+
+
+/* =========================================================
+   11. STATUS KURSUS
+   ========================================================= */
+
+/*
+   SESUAI MODUL 4:
+   .badge-available
+   .badge-full
+*/
+
+.badge-available,
+.badge-full {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding:
+        5px 12px;
+
+    border-radius: 50px;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+.badge-available {
+    color: var(--success);
+
+    background:
+        var(--success-bg);
+}
+
+.badge-full {
+    color: var(--danger);
+
+    background:
+        var(--danger-bg);
+}
+
+
+/* =========================================================
+   12. STATUS TEKS ALTERNATIF
+   ========================================================= */
+
+.status-available {
+    color: var(--success);
+
+    font-weight: 800;
+}
+
+.status-full {
+    color: var(--danger);
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   13. BUTTON
+   ========================================================= */
+
+.btn,
+button,
+input[type="submit"] {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 44px;
+
+    padding:
+        10px 20px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        var(--primary);
+
+    color: white;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.btn:hover,
+button:hover,
+input[type="submit"]:hover {
+    background:
+        var(--primary-dark);
+
+    color: white;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 18px
+        rgba(15, 118, 110, 0.20);
+}
+
+.btn-secondary {
+    background:
+        var(--primary-light);
+
+    color:
+        var(--primary-dark);
+}
+
+.btn-secondary:hover {
+    background:
+        #99f6e4;
+
+    color:
+        var(--primary-dark);
+}
+
+
+/* =========================================================
+   14. TABLE KATALOG
+   ========================================================= */
+
+.table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+
+    background: white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 16px;
+
+    box-shadow: var(--shadow);
+
+    margin-top: 25px;
+}
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+th {
+    padding:
+        16px 18px;
+
+    text-align: left;
+
+    color: white;
+
+    background:
+        var(--primary);
+
+    font-size: 14px;
+}
+
+td {
+    padding:
+        16px 18px;
+
+    color: var(--text);
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+tbody tr {
+    transition:
+        background 0.2s ease;
+}
+
+tbody tr:hover {
+    background:
+        #f0fdfa;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   15. TABLE RESPONSIVE
+   ========================================================= */
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+
+/* =========================================================
+   16. KALKULATOR BIAYA
+   ========================================================= */
+
+/*
+   Modul 3 menggunakan:
+   .card
+   table
+   .total
+
+   CSS berikut dibuat khusus untuk
+   fee-calculator.php
+*/
+
+.fee-calculator,
+.calculator {
+    width: min(760px, 100%);
+
+    margin:
+        0 auto;
+
+    background:
+        white;
+
+    padding:
+        35px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        22px;
+
+    box-shadow:
+        var(--shadow);
+}
+
+.fee-calculator h1,
+.calculator h1 {
+    color:
+        var(--dark);
+
+    font-size:
+        30px;
+
+    margin-bottom:
+        8px;
+}
+
+.fee-calculator > p,
+.calculator > p {
+    color:
+        var(--text);
+
+    margin-bottom:
+        20px;
+}
+
+
+/* =========================================================
+   17. CLASS .CARD DARI MODUL 3
+   ========================================================= */
+
+.card {
+    max-width: 720px;
+
+    margin:
+        0 auto;
+
+    background:
+        white;
+
+    padding:
+        30px;
+
+    border-radius:
+        20px;
+
+    border:
+        1px solid var(--border);
+
+    box-shadow:
+        var(--shadow);
+}
+
+.card h1 {
+    color:
+        var(--dark);
+
+    font-size:
+        30px;
+
+    margin-bottom:
+        10px;
+}
+
+.card p {
+    color:
+        var(--text);
+}
+
+
+/* =========================================================
+   18. TABEL KALKULATOR
+   ========================================================= */
+
+.card table {
+    width: 100%;
+
+    margin-top:
+        25px;
+
+    border-collapse:
+        separate;
+
+    border-spacing:
+        0;
+
+    overflow: hidden;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        12px;
+}
+
+.card table th {
+    background:
+        #e6fffb;
+
+    color:
+        var(--primary-dark);
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+.card table td {
+    background:
+        white;
+}
+
+
+/* =========================================================
+   19. TOTAL AKHIR
+   ========================================================= */
+
+/*
+   SESUAI MODUL 3:
+   <tr class="total">
+*/
+
+.total td {
+    background:
+        #e6fffb !important;
+
+    color:
+        var(--primary-dark) !important;
+
+    font-size:
+        18px;
+
+    font-weight:
+        900;
+
+    border-top:
+        2px solid #99f6e4;
+}
+
+.total td:last-child {
+    color:
+        var(--primary) !important;
+
+    font-size:
+        21px;
+}
+
+
+/* =========================================================
+   20. HASIL PERHITUNGAN
+   ========================================================= */
+
+.result {
+    margin-top:
+        25px;
+
+    padding:
+        20px;
+
+    background:
+        #f0fdfa;
+
+    border:
+        1px solid #99f6e4;
+
+    border-radius:
+        14px;
+}
+
+.result h2 {
+    color:
+        var(--primary-dark);
+
+    margin-bottom:
+        8px;
+}
+
+
+/* =========================================================
+   21. FORM
+   ========================================================= */
+
+.form-container {
+    width:
+        min(760px, 100%);
+
+    margin:
+        0 auto;
+
+    padding:
+        32px;
+
+    background:
+        white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        20px;
+
+    box-shadow:
+        var(--shadow);
+}
+
+.form-group {
+    margin-bottom:
+        20px;
+}
+
+.form-group label {
+    display:
+        block;
+
+    color:
+        var(--dark);
+
+    font-weight:
+        800;
+
+    margin-bottom:
+        7px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea,
+.form-control {
+    width:
+        100%;
+
+    padding:
+        12px 14px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        10px;
+
+    background:
+        white;
+
+    color:
+        var(--dark);
+
+    outline:
+        none;
+
+    transition:
+        border 0.2s,
+        box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.form-control:focus {
+    border-color:
+        var(--primary);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(20, 184, 166, 0.12);
+}
+
+.form-group textarea {
+    min-height:
+        120px;
+
+    resize:
+        vertical;
+}
+
+
+/* =========================================================
+   22. ALERT
+   ========================================================= */
+
+.alert {
+    padding:
+        15px 18px;
+
+    margin:
+        20px 0;
+
+    border-radius:
+        12px;
+
+    border:
+        1px solid transparent;
+}
+
+.alert-success {
+    color:
+        #166534;
+
+    background:
+        #f0fdf4;
+
+    border-color:
+        #bbf7d0;
+}
+
+.alert-danger,
+.alert-error {
+    color:
+        #991b1b;
+
+    background:
+        #fef2f2;
+
+    border-color:
+        #fecaca;
+}
+
+.alert-warning {
+    color:
+        #92400e;
+
+    background:
+        #fffbeb;
+
+    border-color:
+        #fde68a;
+}
+
+.alert-info {
+    color:
+        #075985;
+
+    background:
+        #f0f9ff;
+
+    border-color:
+        #bae6fd;
+}
+
+
+/* =========================================================
+   23. RESULT PAGE
+   ========================================================= */
+
+.result-page {
+    width:
+        min(800px, 100%);
+
+    margin:
+        30px auto;
+
+    padding:
+        0 15px;
+}
+
+.result-card {
+    text-align:
+        center;
+
+    background:
+        white;
+
+    padding:
+        35px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        22px;
+
+    box-shadow:
+        var(--shadow);
+}
+
+.result-card h1 {
+    color:
+        var(--dark);
+
+    margin-bottom:
+        8px;
+}
+
+.result-card p {
+    color:
+        var(--text);
+}
+
+
+/* =========================================================
+   24. SUMMARY
+   ========================================================= */
+
+.summary-card {
+    text-align:
+        left;
+
+    background:
+        #f8fafc;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        14px;
+
+    padding:
+        22px;
+
+    margin:
+        25px 0;
+}
+
+.summary-item {
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+    padding:
+        12px 0;
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+.summary-item:last-child {
+    border-bottom:
+        none;
+}
+
+.summary-label {
+    color:
+        var(--text);
+}
+
+.summary-value {
+    color:
+        var(--dark);
+
+    font-weight:
+        800;
+
+    text-align:
+        right;
+}
+
+
+/* =========================================================
+   25. FOOTER
+   ========================================================= */
+
+footer {
+    margin-top:
+        50px;
+
+    padding:
+        35px 20px;
+
+    text-align:
+        center;
+
+    color:
+        #d5fffa;
+
+    background:
+        linear-gradient(
+            135deg,
+            #16332c,
+            #115e59
+        );
+}
+
+footer h3 {
+    color:
+        white;
+
+    margin-bottom:
+        6px;
+}
+
+footer p {
+    color:
+        #b8e7e0;
+
+    font-size:
+        14px;
+}
+
+
+/* =========================================================
+   26. LINK KEMBALI
+   ========================================================= */
+
+.card a:not(.btn),
+.fee-calculator a:not(.btn),
+.calculator a:not(.btn) {
+    color:
+        var(--primary);
+
+    font-weight:
+        700;
+
+    transition:
+        0.2s;
+}
+
+.card a:not(.btn):hover,
+.fee-calculator a:not(.btn):hover,
+.calculator a:not(.btn):hover {
+    color:
+        var(--primary-dark);
+
+    text-decoration:
+        underline;
+}
+
+
+/* =========================================================
+   27. SPACING
+   ========================================================= */
+
+.mt-1 {
+    margin-top: 8px;
+}
+
+.mt-2 {
+    margin-top: 16px;
+}
+
+.mt-3 {
+    margin-top: 24px;
+}
+
+.mt-4 {
+    margin-top: 32px;
+}
+
+.mb-1 {
+    margin-bottom: 8px;
+}
+
+.mb-2 {
+    margin-bottom: 16px;
+}
+
+.mb-3 {
+    margin-bottom: 24px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+/* =========================================================
+   28. ANIMASI
+   ========================================================= */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+.hero,
+.card,
+.course-card,
+.form-container,
+.result-card {
+    animation:
+        fadeUp 0.45s ease both;
+}
+
+
+/* =========================================================
+   29. RESPONSIVE TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .course-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================================================
+   30. RESPONSIVE HP
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    main {
+        width:
+            92%;
+
+        padding:
+            25px 0 45px;
+    }
+
+    header .container,
+    header nav {
+        flex-direction:
+            column;
+
+        padding:
+            12px 0;
+
+        gap:
+            8px;
+    }
+
+    nav ul {
+        flex-wrap:
+            wrap;
+
+        justify-content:
+            center;
+    }
+
+    nav a {
+        font-size:
+            13px;
+
+        padding:
+            6px 8px;
+    }
+
+    .hero {
+        padding:
+            40px 24px;
+
+        border-radius:
+            19px;
+    }
+
+    .hero h1 {
+        font-size:
+            31px;
+    }
+
+    .hero p {
+        font-size:
+            15px;
+    }
+
+    .section-title {
+        font-size:
+            25px;
+    }
+
+    .course-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .course-card {
+        padding:
+            22px;
+    }
+
+    .card,
+    .fee-calculator,
+    .calculator,
+    .form-container {
+        padding:
+            22px 17px;
+
+        border-radius:
+            16px;
+    }
+
+    .card h1,
+    .fee-calculator h1,
+    .calculator h1 {
+        font-size:
+            25px;
+    }
+
+    .card table {
+        min-width:
+            500px;
+    }
+
+    .table-wrapper {
+        border-radius:
+            12px;
+    }
+
+    .summary-item {
+        flex-direction:
+            column;
+
+        gap:
+            3px;
+    }
+
+    .summary-value {
+        text-align:
+            left;
+    }
+
+    .btn,
+    button,
+    input[type="submit"] {
+        width:
+            100%;
+    }
+
+}
+
+
+/* =========================================================
+   31. ACCESSIBILITY
+   ========================================================= */
+
+:focus-visible {
+    outline:
+        3px solid #5eead4;
+
+    outline-offset:
+        3px;
+}
